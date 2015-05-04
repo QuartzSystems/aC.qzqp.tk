@@ -1,0 +1,12 @@
+{
+    "name": "qp_aboutCountries",
+    "version": "1.0.0",
+    "description": "",
+    "main": "node ./se/server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node se/server.js"
+    },
+    "author": "qsysmine",
+    "license": "ISC"
+}

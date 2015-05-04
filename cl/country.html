@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{{css}}}
+    <meta charset="UTF-8">
+    <title>{{data.name}} | aboutCountries | QZ</title>
+</head>
+
+<body>
+    {{{nav}}}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="http://flagpedia.net/data/flags/normal/{{lcISO}}.png">
+                    </div>
+                    <div class="card-content">
+                        <h1 class="black-text">{{data.name}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title black-text">
+                            <h3>ISO Code</h3>
+                        </span>
+                        <p>
+                            <h4>{{data.iso2Code}}</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title black-text">
+                            <h3>World Bank ID</h3>
+                        </span>
+                        <p>
+                            <h4>{{data.id}}</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title black-text">
+                            <h3>Capital</h3>
+                        </span>
+                        <p>
+                            <h4>{{data.capitalCity}}</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title black-text">
+                            <h3>Income Level</h3>
+                        </span>
+                        <p>
+                            <h4>{{data.incomeLevel.value}}</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title black-text">
+                            <h3>Region</h3>
+                        </span>
+                        <p>
+                            <h4>{{data.region.value}}</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title black-text">
+                            <h3>Location</h3>
+                        </span>
+                        <p>
+                            <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=({{data.latitude}}%2C {{data.longitude}})&zoom=2&key=AIzaSyCAsF6p_69fK5PmIgXOi5PeaJoBP6Hu3jI"></iframe>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+{{{js}}}
+
+</html>
