@@ -93,8 +93,7 @@ app.get("/c/:cN", function(req, res) {
     for(var c in pD) {
         if(pD[c].id == req.params.cN) {
             res.redirect("./" + pD[c].iso2Code);
-        }
-        else if(pD[c].iso2Code == req.params.cN) {
+        } else if(pD[c].iso2Code == req.params.cN) {
             console.log(c);
             n = c;
         }
@@ -107,6 +106,23 @@ app.get("/c/:cN", function(req, res) {
         errorText: getError()
     });
     res.end(u.r(files[(n != 1000 ? "country.html" : "error.html")], view));
+});
+app.get("/api/p/:cIC", function(req, res) {
+    var code = req.params.cIC;
+    var url = "http://www.quandl.com/api/v1/datasets/WORLDBANK/" + code + "_SP_POP_TOTL.json";
+    http.get(url, function(dR) {
+        var r = "";
+        dR.on("data", function(chunk) {
+            r += chunk;
+        });
+        dR.on("end", function() {
+            res.end(JSON.stringify({
+                num: (JSON.parse(r).data ? JSON.parse(r).data[0][1] : "unknown")
+            }));
+        });
+    }).on("error", function(e) {
+        console.log(e.message);
+    });
 });
 app.get("/file/:name", function(req, res) {
     if(req.params.name.split(".")[1] == "js") {

@@ -11,5 +11,16 @@
     if(location.pathname == "/") {
         $('.brand-logo').text("aC");
         $('#countryGo').attr("placeholder","Enter ISO or ISO 2 Code and press enter.");
+    } else if($('#pop').length) {
+        $.get("/api/p/" + $isoCode, function(d) {
+            if(typeof d == "string") {
+                d = JSON.parse(d);
+            }
+            var num = d.num;
+            if(typeof d.num == "number") {
+                num = num.toLocaleString("en-US");
+            }
+            $('#pop').text(num);
+        });
     }
 })();
