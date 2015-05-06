@@ -125,6 +125,23 @@ app.get("/api/p/:cIC", function(req, res) {
         console.log(e.message);
     });
 });
+app.get("/api/g/:cIC", function(req, res) {
+    var code = req.params.cIC;
+    var url = "http://api.worldbank.org/countries/" + code + "/indicators/NY.GDP.MKTP.CD?format=JSON";
+    http.get(url, function(dR) {
+        var r = "";
+        dR.on("data", function(chunk) {
+            r += chunk;
+        });
+        dR.on("end", function() {
+            res.end(JSON.stringify({
+                num: (JSON.parse(r)[1] ? JSON.parse(r)[1][0].value : "unknown")
+            }));
+        });
+    }).on("error", function(e) {
+        console.log(e.message);
+    });
+});
 app.get("/file/:name", function(req, res) {
     if(req.params.name.split(".")[1] == "js") {
         res.set({

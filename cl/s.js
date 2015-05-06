@@ -22,5 +22,15 @@
             }
             $('#pop').text(num);
         });
+        $.get("/api/g/" + $isoCode, function(d) {
+            if(typeof d == "string") {
+                d = JSON.parse(d);
+            }
+            var num = d.num;
+            if(d.num != "unknown") {
+                num = "$" + (typeof num == "number" ? num : parseInt(num)).toLocaleString("en-GB" );
+            }
+            $('#gdp').text(num);
+        });
     }
 })();
