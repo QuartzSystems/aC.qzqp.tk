@@ -103,7 +103,7 @@ app.get("/c/:cN", function(req, res) {
     var view = u.vO();
     view.lcISO = req.params.cN.toLowerCase();
     view.data = (country || {
-        reason: "THE COUNTRY " + req.params.cN + " DOES NOT EXIST.",
+        reason: "The country " + req.params.cN + " does not exist.",
         errorText: getError()
     });
     res.end(u.r(files[(n != 1000 ? "country.html" : "error.html")], view));
@@ -124,7 +124,7 @@ app.get("/", function(req, res) {
     res.end(u.r(files["index.html"], u.vO()));
 });
 app.use(function(err, req, res, next) {
-    var reason = "UNKNOWN";
+    var reason = "unknown";
     var errorText = getError();
     var v = u.vO;
     if(err instanceof NotFound) {
