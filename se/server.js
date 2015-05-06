@@ -26,6 +26,7 @@ var u = {
             css: files["cssIncludes.html"],
             js: files["jsIncludes.html"],
             nav: files["nav.html"],
+            foot: files["foot.html"],
             data: {}
         };
     },
@@ -69,7 +70,7 @@ var getError = function() {
     return errorTexts[u.gRI(0, errorTexts.length)];
 };
 //FILE MANAGE
-fileNames = ["index.html", "country.html", "cssIncludes.html", "jsIncludes.html", "nav.html", "s.js", "s.css", "error.html"];
+fileNames = ["index.html", "country.html", "foot.html", "cssIncludes.html", "jsIncludes.html", "nav.html", "s.js", "s.css", "error.html"];
 files = {};
 u.gF();
 u.sR(function() {
