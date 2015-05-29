@@ -100,6 +100,7 @@ app.get("/c/:cN", function(req, res) {
         }
     }
     var country = pD[n];
+    country.incomeLevelFixed = country.incomeLevel.value.split("(")[0].split(":")[0];
     var view = u.vO();
     view.lcISO = req.params.cN.toLowerCase();
     view.data = (country || {
@@ -161,9 +162,8 @@ app.use(function(err, req, res, next) {
     var reason = "unknown";
     var errorText = getError();
     var v = u.vO;
-    if(err instanceof NotFound) {
-        reason = "404";
-    }
+    reason = "404";
+    v.data = (v.date ? v.data : {});
     v.data.reason = reason;
     v.data.errorText = errorText;
     res.end(u.r(files["error.html"], v));
