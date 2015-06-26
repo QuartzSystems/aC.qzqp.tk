@@ -109,7 +109,7 @@ app.get("/c/:cN", function(req, res) {
     });
     res.end(u.r(files[(n != 1000 ? "country.html" : "error.html")], view));
 });
-app.get("/api/p/:cIC", function(req, res) {
+/*app.get("/api/p/:cIC", function(req, res) {
     var code = req.params.cIC;
     var url = "http://www.quandl.com/api/v1/datasets/WORLDBANK/" + code + "_SP_POP_TOTL.json";
     http.get(url, function(dR) {
@@ -125,7 +125,7 @@ app.get("/api/p/:cIC", function(req, res) {
     }).on("error", function(e) {
         console.log(e.message);
     });
-});
+});*/
 app.get("/api/g/:cIC", function(req, res) {
     var code = req.params.cIC;
     var url = "http://api.worldbank.org/countries/" + code + "/indicators/NY.GDP.MKTP.CD?format=JSON";
